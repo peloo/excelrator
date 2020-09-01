@@ -2,8 +2,6 @@ package com.gft;
 
 import com.gft.integrations.Reader;
 import com.gft.integrations.Writer;
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-import org.apache.poi.ss.usermodel.Workbook;
 
 import java.util.Map;
 import java.util.Scanner;
@@ -20,9 +18,6 @@ public class Excelrator extends Exception{
         System.out.println("| of every sheet and get the name of txt file output from the first row |");
         System.out.println("| of the first column.                                                  |");
         System.out.println("|================================[START]================================|");
-
-        Workbook tmp = new HSSFWorkbook();
-
 
         System.out.print("Enter the path with name where locate the excel file: ");
         String readFromPath = scanner.nextLine();
