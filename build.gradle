@@ -21,3 +21,21 @@ jar {
         attributes 'Main-Class': 'com.gft.Excelrator'
     }
 }
+
+//create a single Jar with all dependencies
+task fatJar(type: Jar) {
+    manifest {
+        attributes 'Implementation-Title': 'Gradle fatJar File Example',
+                'Implementation-Version': archiveVersion,
+                'Main-Class': 'com.gft.Excelrator'
+    }
+    archiveBaseName = project.name + '-all'
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
+}
+
+//Get dependencies from Maven central repository
+repositories {
+    mavenCentral()
+}
+
